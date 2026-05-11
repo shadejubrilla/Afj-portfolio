@@ -37,4 +37,4 @@ Static site — open `index.html` in any browser or serve with any static file s
 
 ## Main website 
 
-wwww.afolashade.com.ng
+www.afolashade.com.ng
