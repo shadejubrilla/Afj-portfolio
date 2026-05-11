@@ -34,6 +34,7 @@ Dark theme
 ## Deployment
 
 Static site — open `index.html` in any browser or serve with any static file server.
+direct link is https://shadejubrilla.github.io/Afj-portfolio/
 
 ## Main website 
 
