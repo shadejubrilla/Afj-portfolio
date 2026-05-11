@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Afolashade Joy Jubrilla | GRC Portfolio</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+ <style>
+ *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ :root {
+  --bg: #0f172a;
+  --bg2: #0f172a;
+  --card: #1e293b;
+  --card2: #1e293b;
+  --border: rgba(148,163,184,0.1);
+  --border-h: rgba(148,163,184,0.25);
+  --accent: #3b82f6;
+  --accent-light: #60a5fa;
+  --accent2: #60a5fa;
+  --accent-glow: rgba(59,130,246,0.15);
+  --text: #f8fafc;
+  --text-muted: #94a3b8;
+  --text2: #94a3b8;
+  --text-dim: #64748b;
+  --text3: #64748b;
+  --green: #10b981;
+  --green-dim: rgba(16,185,129,0.12);
+  --gold: #f59e0b;
+  --gold-dim: rgba(245,158,11,0.10);
+  --font-h: 'Space Grotesk', sans-serif;
+  --font-b: 'Inter', sans-serif;
+  --r: 12px;
+  --r-lg: 20px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+ html { scroll-behavior: smooth; }
+ body {
+ background: var(--bg);
+ color: var(--text);
+ font-family: var(--font-b);
+ font-size: 17px;
+ line-height: 1.72;
+ -webkit-font-smoothing: antialiased;
+ overflow-x: hidden;
+ }
+ a { color: inherit; text-decoration: none; }
+ ul { list-style: none; }
+ ::-webkit-scrollbar { width: 4px; }
+ ::-webkit-scrollbar-track { background: var(--bg); }
+ ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+ 
+/* ── BG GRID ── */
+body::before {
+ content: '';
+ position: fixed; inset: 0;
+ background-image:
+ linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px),
+ linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px);
+ background-size: 60px 60px;
+ pointer-events: none; z-index: 0;
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+ opacity: 0;
+ transform: translateY(30px);
+ transition: opacity 0.72s var(--ease), transform 0.72s var(--ease);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.d1 { transition-delay: 0.08s; }
+.d2 { transition-delay: 0.16s; }
+.d3 { transition-delay: 0.24s; }
+.d4 { transition-delay: 0.32s; }
+.d5 { transition-delay: 0.40s; }
+.d6 { transition-delay: 0.48s; }
+
+/* ── KEYFRAMES ── */
+@keyframes fadeUp { from{opacity:0;transform:translateY(26px)} to{opacity:1;transform:none} }
+@keyframes glow { 0%,100%{opacity:.6} 50%{opacity:1} }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.82)} }
+@keyframes orbF1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(40px,28px)} }
+@keyframes orbF2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-30px,-38px)} }
+@keyframes orbF3 { 0%,100%{transform:translate(-50%,-50%) scale(1)} 50%{transform:translate(-50%,-50%) scale(1.28)} }
+@keyframes scanLine {
+ 0% { transform: translateY(-100%); opacity: 0; }
+ 10% { opacity: 1; }
+ 90% { opacity: 1; }
+ 100% { transform: translateY(100vh); opacity: 0; }
+}
+
+/* ── NAV ── */
+nav {
+ position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+ display: flex; align-items: center; justify-content: space-between;
+ padding: 0 44px; height: 66px;
+ background: rgba(15,23,42,0.8);
+ backdrop-filter: blur(20px) saturate(1.5);
+ -webkit-backdrop-filter: blur(20px) saturate(1.5);
+ border-bottom: 1px solid var(--border);
+ transition: background 0.3s;
+}
+.nav-logo {
+ font-family: var(--font-h); font-weight: 700; font-size: 17px;
+ letter-spacing: 0.03em; color: var(--text); z-index: 201;
+}
+.nav-logo span { color: var(--accent2); }
+.nav-links { display: flex; align-items: center; gap: 30px; }
+.nav-links a {
+ font-size: 14px; font-weight: 500; color: var(--text2);
+ letter-spacing: 0.03em; position: relative; transition: color 0.2s;
+}
+.nav-links a::after {
+ content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+ height: 1px; background: var(--accent2);
+ transform: scaleX(0); transform-origin: left;
+ transition: transform 0.25s var(--ease);
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-badge {
+ display: flex; align-items: center; gap: 7px;
+ font-size: 13px; font-weight: 600; color: var(--green);
+ background: var(--green-dim);
+ border: 1px solid rgba(16,185,129,0.28);
+ padding: 6px 14px; border-radius: 20px; z-index: 201;
+}
+.nav-badge::before {
+ content: ''; width: 7px; height: 7px; border-radius: 50%;
+ background: var(--green); box-shadow: 0 0 8px var(--green);
+ animation: pulse 2s infinite;
+}
+/* Hamburger */
+.nav-toggle {
+ display: none; flex-direction: column; justify-content: center;
+ align-items: center; gap: 5px; width: 38px; height: 38px;
+ background: none; border: 1px solid var(--border); border-radius: 9px;
+ cursor: pointer; z-index: 201; transition: border-color 0.2s;
+}
+.nav-toggle:hover { border-color: var(--border-h); }
+.nav-toggle span {
+ display: block; width: 18px; height: 1.5px;
+ background: var(--text2); border-radius: 2px;
+ transition: transform 0.3s var(--ease), opacity 0.3s;
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+/* Drawer */
+.nav-drawer {
+ position: fixed; top: 66px; left: 0; right: 0; bottom: 0;
+ background: rgba(15,23,42,0.97); backdrop-filter: blur(24px);
+ z-index: 199; display: flex; flex-direction: column;
+ align-items: center; justify-content: center; gap: 34px;
+ opacity: 0; pointer-events: none; transition: opacity 0.35s var(--ease);
+}
+.nav-drawer.open { opacity: 1; pointer-events: all; }
+.nav-drawer a {
+ font-family: var(--font-h); font-size: 30px; font-weight: 700;
+ color: var(--text2); transition: color 0.2s;
+}
+.nav-drawer a:hover { color: var(--accent2); }
+
+/* ── HERO ── */
+.hero {
+ min-height: 100vh; padding: 130px 44px 90px;
+ display: flex; align-items: center;
+ position: relative; overflow: hidden; z-index: 1;
+}
+/* Scan-line effect */
+.hero::after {
+ content: '';
+ position: absolute; top: 0; left: 0; right: 0; height: 2px;
+ background: linear-gradient(90deg, transparent, rgba(59,130,246,0.5), transparent);
+ animation: scanLine 8s 2s ease-in-out infinite;
+ pointer-events: none;
+}
+.orb {
+ position: absolute; border-radius: 50%;
+ pointer-events: none; filter: blur(80px);
+}
+.orb-1 {
+ width: 680px; height: 680px;
+ background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%);
+ top: -120px; left: -180px; animation: orbF1 13s ease-in-out infinite;
+}
+.orb-2 {
+ width: 420px; height: 420px;
+ background: radial-gradient(circle, rgba(16,185,129,0.05) 0%, transparent 70%);
+ bottom: 0; right: -80px; animation: orbF2 16s ease-in-out infinite;
+}
+.orb-3 {
+ width: 320px; height: 320px;
+ background: radial-gradient(circle, rgba(245,158,11,0.03) 0%, transparent 70%);
+ top: 50%; left: 50%; animation: orbF3 22s ease-in-out infinite;
+}
+.hero-inner {
+ max-width: 1100px; margin: 0 auto; width: 100%;
+ display: grid; grid-template-columns: 1fr 340px;
+ gap: 64px; align-items: center; position: relative; z-index: 2;
+}
+.hero-eyebrow {
+ display: inline-flex; align-items: center; gap: 8px;
+ font-size: 12px; font-weight: 700; letter-spacing: 0.14em;
+ text-transform: uppercase; color: var(--accent2);
+ background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.22);
+ padding: 7px 16px; border-radius: 20px; margin-bottom: 26px;
+ opacity: 0; animation: fadeUp 0.7s 0.1s var(--ease) forwards;
+}
+.hero-name-sm {
+ font-family: var(--font-h); font-size: 14px; font-weight: 500;
+ letter-spacing: 0.16em; text-transform: uppercase; color: var(--text3);
+ margin-bottom: 10px;
+ opacity: 0; animation: fadeUp 0.7s 0.2s var(--ease) forwards;
+}
+.hero h1 {
+ font-family: var(--font-h);
+ font-size: clamp(34px, 5.2vw, 60px);
+ font-weight: 700; line-height: 1.07; letter-spacing: -0.022em;
+ color: #fff; margin-bottom: 20px;
+ opacity: 0; animation: fadeUp 0.8s 0.3s var(--ease) forwards;
+}
+.hero h1 .grad {
+ background: linear-gradient(135deg, var(--accent), var(--accent2), #a78bfa);
+ -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+ background-clip: text;
+}
+.hero-sub {
+ font-size: 18px; color: var(--text2); line-height: 1.74;
+ max-width: 540px; margin-bottom: 38px;
+ opacity: 0; animation: fadeUp 0.8s 0.4s var(--ease) forwards;
+}
+.hero-sub strong { color: var(--text); font-weight: 600; }
+/* Stats */
+.stats-row {
+ display: flex; margin-bottom: 36px;
+ border: 1px solid var(--border); border-radius: var(--r);
+ overflow: hidden; background: var(--card);
+ opacity: 0; animation: fadeUp 0.8s 0.5s var(--ease) forwards;
+}
+.stat {
+ flex: 1; padding: 22px 14px;
+ border-right: 1px solid var(--border); text-align: center;
+ transition: background 0.2s;
+}
+.stat:last-child { border-right: none; }
+.stat:hover { background: var(--card2); }
+.stat-num {
+ font-family: var(--font-h); font-size: 28px; font-weight: 700;
+ color: var(--accent2); display: block; line-height: 1; margin-bottom: 6px;
+}
+.stat-label {
+ font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+ text-transform: uppercase; color: var(--text3);
+}
+/* Buttons */
+.hero-cta {
+ display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+ opacity: 0; animation: fadeUp 0.8s 0.62s var(--ease) forwards;
+}
+.btn {
+ display: inline-flex; align-items: center; gap: 8px;
+ padding: 15px 30px; border-radius: var(--r);
+ font-family: var(--font-h); font-size: 15px; font-weight: 700;
+ cursor: pointer; letter-spacing: 0.02em; white-space: nowrap;
+ transition: transform 0.25s var(--ease), box-shadow 0.25s, background 0.2s, border-color 0.2s;
+ border: none;
+}
+.btn-primary {
+ background: var(--accent); color: #fff;
+ box-shadow: 0 0 28px rgba(59,130,246,0.35), 0 4px 14px rgba(0,0,0,0.28);
+}
+.btn-primary:hover {
+ background: #2563eb;
+ box-shadow: 0 0 44px rgba(59,130,246,0.55), 0 6px 18px rgba(0,0,0,0.3);
+ transform: translateY(-3px);
+}
+.btn-primary:active { transform: translateY(0); }
+.btn-ghost {
+ background: transparent; color: var(--text2);
+ border: 1px solid var(--border);
+}
+.btn-ghost:hover {
+ color: var(--text); border-color: var(--border-h);
+ background: rgba(99,179,237,0.05); transform: translateY(-3px);
+}
+/* Hero card */
+.hero-card {
+ background: var(--card); border: 1px solid var(--border);
+ border-radius: var(--r-lg); padding: 28px;
+ position: relative; overflow: hidden;
+ opacity: 0; animation: fadeUp 0.9s 0.5s var(--ease) forwards;
+}
+.hero-card::before {
+ content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+ background: linear-gradient(90deg, transparent, var(--accent), var(--accent2), transparent);
+ animation: glow 3s ease-in-out infinite;
+}
+.hero-card-title {
+ font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
+ text-transform: uppercase; color: var(--text3); margin-bottom: 18px;
+}
+.reg-list { display: flex; flex-direction: column; gap: 9px; }
+.reg-item {
+ display: flex; align-items: center; justify-content: space-between;
+ padding: 11px 14px; background: var(--card2); border-radius: 9px;
+ border: 1px solid var(--border);
+ transition: border-color 0.2s, transform 0.22s var(--ease);
+}
+.reg-item:hover { border-color: var(--border-h); transform: translateX(4px); }
+.reg-name { font-size: 13px; font-weight: 600; color: var(--text); }
+.reg-dot {
+ width: 7px; height: 7px; border-radius: 50%;
+ background: var(--green); box-shadow: 0 0 8px var(--green);
+}
+
+/* ── SECTIONS ── */
+section { padding: 100px 44px; position: relative; z-index: 1; }
+section:nth-child(even) { background: var(--bg2); }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-tag {
+ font-size: 12px; font-weight: 700; letter-spacing: 0.18em;
+ text-transform: uppercase; color: var(--accent);
+ margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
+}
+.section-tag::before {
+ content: attr(data-num);
+ font-family: var(--font-h); font-size: 11px; color: var(--text3);
+ background: var(--card2); border: 1px solid var(--border);
+ padding: 3px 10px; border-radius: 5px;
+}
+.section-title {
+ font-family: var(--font-h);
+ font-size: clamp(28px, 4vw, 44px);
+ font-weight: 700; letter-spacing: -0.018em; line-height: 1.12;
+ margin-bottom: 16px; color: #fff;
+}
+.section-desc {
+ font-size: 17px; color: var(--text2);
+ max-width: 640px; line-height: 1.74; margin-bottom: 54px;
+}
+.divider {
+ height: 1px; position: relative; z-index: 1;
+ background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+/* Tags */
+.tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.tag {
+ font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+ text-transform: uppercase; padding: 4px 11px; border-radius: 5px;
+ background: rgba(59,130,246,0.08); color: var(--accent2);
+ border: 1px solid rgba(59,130,246,0.18);
+ transition: background 0.2s, border-color 0.2s;
+}
+.tag:hover { background: rgba(59,130,246,0.15); border-color: rgba(59,130,246,0.36); }
+
+/* ── PREMIUM BADGES & LABELS ── */
+.premium-badge {
+ display: inline-flex; align-items: center; gap: 5px;
+ font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+ text-transform: uppercase; color: var(--gold);
+ background: linear-gradient(135deg, rgba(245,158,11,0.12), rgba(245,158,11,0.06));
+ border: 1px solid rgba(245,158,11,0.25);
+ padding: 4px 10px; border-radius: 5px; white-space: nowrap;
+}
+.premium-badge i { font-size: 9px; }
+.level-tag {
+ display: inline-flex; align-items: center; gap: 4px;
+ font-size: 9px; font-weight: 700; letter-spacing: 0.1em;
+ text-transform: uppercase; padding: 3px 9px; border-radius: 4px;
+ margin-bottom: 10px;
+}
+.level-tag.expert { background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(245,158,11,0.08)); color: var(--gold); border: 1px solid rgba(245,158,11,0.25); }
+.level-tag.advanced { background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(59,130,246,0.08)); color: var(--accent2); border: 1px solid rgba(59,130,246,0.25); }
+.level-tag.proficient { background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(16,185,129,0.08)); color: var(--green); border: 1px solid rgba(16,185,129,0.25); }
+.skill-tag {
+ font-size: 10px; font-weight: 600; letter-spacing: 0.06em;
+ padding: 2px 10px; border-radius: 4px;
+ background: rgba(148,163,184,0.08); color: var(--text3);
+ border: 1px solid rgba(148,163,184,0.15);
+}
+
+/* ── COMPETENCY CARDS ── */
+.comp-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.comp-card {
+ background: var(--card); border: 1px solid var(--border);
+ border-radius: var(--r-lg); padding: 30px;
+ position: relative; overflow: hidden; cursor: default;
+ transition: border-color 0.3s, transform 0.32s var(--ease), box-shadow 0.32s;
+ transform-style: preserve-3d;
+}
+.comp-card::before {
+ content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+ background: linear-gradient(90deg, var(--accent), var(--accent2));
+ transform: scaleX(0); transform-origin: left;
+ transition: transform 0.36s var(--ease);
+}
+.comp-card::after {
+ content: ''; position: absolute; inset: 0;
+ background: radial-gradient(ellipse at top left, rgba(59,130,246,0.07), transparent 65%);
+ opacity: 0; transition: opacity 0.32s;
+}
+.comp-card:hover {
+ border-color: var(--border-h); transform: translateY(-6px);
+ box-shadow: 0 22px 44px rgba(0,0,0,0.32), 0 0 0 1px rgba(59,130,246,0.1);
+}
+.comp-card:hover::before { transform: scaleX(1); }
+.comp-card:hover::after { opacity: 1; }
+.comp-icon { font-size: 26px; margin-bottom: 18px; display: block; position: relative; z-index: 1; }
+.comp-title { font-family: var(--font-h); font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 12px; position: relative; z-index: 1; }
+.comp-desc { font-size: 15px; color: var(--text2); line-height: 1.68; margin-bottom: 20px; position: relative; z-index: 1; }
+
+/* ── CASE STUDIES ── */
+.cases { display: flex; flex-direction: column; gap: 26px; }
+.case-card {
+ background: var(--card); border: 1px solid var(--border);
+ border-radius: var(--r-lg); overflow: hidden;
+ transition: border-color 0.3s, box-shadow 0.3s;
+}
+.case-card:hover { border-color: var(--border-h); box-shadow: 0 16px 40px rgba(0,0,0,0.24); }
+.case-header {
+ padding: 30px 34px 0;
+ display: flex; align-items: flex-start; justify-content: space-between;
+ gap: 16px; flex-wrap: wrap;
+}
+.case-num {
+ font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+ text-transform: uppercase; color: var(--text3);
+ background: var(--card2); border: 1px solid var(--border);
+ padding: 4px 11px; border-radius: 5px; margin-bottom: 14px; display: inline-block;
+}
+.case-title { font-family: var(--font-h); font-size: 21px; font-weight: 700; color: #fff; margin-bottom: 7px; line-height: 1.22; }
+.case-subtitle { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent2); opacity: 0.75; }
+.case-status {
+ font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+ text-transform: uppercase; color: var(--green);
+ background: var(--green-dim); border: 1px solid rgba(16,185,129,0.22);
+ padding: 5px 12px; border-radius: 5px; white-space: nowrap; flex-shrink: 0;
+}
+.case-body {
+ display: grid; grid-template-columns: 1fr 1fr 1fr;
+ padding: 24px 34px 28px;
+ border-top: 1px solid var(--border); margin-top: 22px;
+}
+.case-col { padding-right: 28px; border-right: 1px solid var(--border); }
+.case-col:last-child { border-right: none; padding-right: 0; padding-left: 28px; }
+.case-col:nth-child(2){ padding-left: 28px; }
+.case-col-label {
+ font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+ text-transform: uppercase; color: var(--accent2); margin-bottom: 10px;
+ display: flex; align-items: center; gap: 6px;
+}
+.case-col-label::before { content:''; width:3px; height:3px; border-radius:50%; background:var(--accent2); display:inline-block; }
+.case-col p { font-size: 15px; color: var(--text2); line-height: 1.66; }
+.case-footer { padding: 16px 34px; border-top: 1px solid var(--border); background: rgba(0,0,0,0.2); }
+
+/* ── EXPERIENCE ── */
+.exp-list { display: flex; flex-direction: column; gap: 20px; }
+.exp-card {
+ background: var(--card); border: 1px solid var(--border);
+ border-radius: var(--r-lg); padding: 32px 34px;
+ display: grid; grid-template-columns: 1fr auto; gap: 24px;
+ transition: border-color 0.3s, box-shadow 0.3s;
+}
+.exp-card:hover { border-color: var(--border-h); box-shadow: 0 12px 30px rgba(0,0,0,0.2); }
+.exp-company { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent2); margin-bottom: 7px; }
+.exp-role { font-family: var(--font-h); font-size: 19px; font-weight: 700; color: #fff; margin-bottom: 18px; }
+.exp-bullets { display: flex; flex-direction: column; gap: 10px; }
+.exp-bullets li { font-size: 15px; color: var(--text2); padding-left: 18px; position: relative; line-height: 1.66; }
+.exp-bullets li::before { content:'▸'; position:absolute; left:0; color:var(--accent); font-size:11px; top:4px; }
+.exp-meta { text-align: right; flex-shrink: 0; }
+.exp-period { font-size: 12px; font-weight: 600; color: var(--text3); white-space: nowrap; margin-bottom: 5px; }
+.exp-location{ font-size: 12px; color: var(--text3); }
+
+/* ── PUBLICATIONS ── */
+.pub-list { display: flex; flex-direction: column; gap: 20px; }
+.pub-card {
+ background: var(--card); border: 1px solid var(--border);
+ border-radius: var(--r-lg); padding: 30px 34px;
+ display: grid; grid-template-columns: auto 1fr; gap: 26px; align-items: start;
+ transition: border-color 0.3s, box-shadow 0.3s;
+}
+.pub-card:hover { border-color: var(--border-h); box-shadow: 0 12px 30px rgba(0,0,0,0.2); }
+.pub-badge {
+ font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+ padding: 9px 13px; border-radius: 9px; white-space: nowrap;
+ background: rgba(59,130,246,0.1); color: var(--accent2);
+ border: 1px solid rgba(59,130,246,0.22); line-height: 1.55; text-align: center;
+}
+.pub-badge.book { background: var(--gold-dim); color: var(--gold); border-color: rgba(245,158,11,0.25); }
+.pub-journal { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent2); margin-bottom: 8px; opacity: 0.8; }
+.pub-title { font-family: var(--font-h); font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 9px; line-height: 1.3; }
+.pub-desc { font-size: 15px; color: var(--text2); line-height: 1.68; }
+
+/* ── TOOLKIT ── */
+.toolkit-grid {
+ display: grid; grid-template-columns: repeat(4,1fr);
+ gap: 14px; margin-bottom: 52px;
+}
+.tool-card {
+ background: var(--card); border: 1px solid var(--border);
+ border-radius: var(--r); padding: 18px 16px;
+ display: flex; align-items: center; gap: 13px;
+ transition: border-color 0.25s, background 0.25s, transform 0.28s var(--ease);
+}
+.tool-card:hover { border-color: var(--border-h); background: var(--card2); transform: translateY(-4px); }
+.tool-icon { font-size: 22px; flex-shrink: 0; }
+.tool-name { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+.tool-type { font-size: 10px; font-weight: 700; color: var(--text3); letter-spacing: 0.09em; text-transform: uppercase; }
+.edu-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+.edu-card {
+ background: var(--card); border: 1px solid var(--border);
+ border-radius: var(--r); padding: 24px 22px;
+ transition: border-color 0.25s, transform 0.28s var(--ease);
+}
+.edu-card:hover { border-color: var(--border-h); transform: translateY(-4px); }
+.edu-degree { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent2); margin-bottom: 8px; }
+.edu-title { font-family: var(--font-h); font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 7px; line-height: 1.3; }
+.edu-inst { font-size: 14px; color: var(--text2); }
+
+/* ── CONTACT ── */
+.contact-section { background: var(--bg2); padding: 100px 44px; position: relative; z-index: 1; }
+.contact-inner { max-width: 1100px; margin: 0 auto; }
+.contact-top { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 40px; }
+.contact-heading { font-family: var(--font-h); font-size: clamp(28px, 3.6vw, 44px); font-weight: 700; letter-spacing: -0.018em; line-height: 1.13; color: #fff; margin-bottom: 18px; }
+.contact-sub { font-size: 17px; color: var(--text2); line-height: 1.74; }
+.contact-grid { display: flex; flex-direction: column; gap: 14px; }
+.contact-item {
+ display: flex; align-items: center; gap: 14px;
+ background: var(--card); border: 1px solid var(--border);
+ border-radius: var(--r); padding: 16px 20px;
+ transition: border-color 0.25s, transform 0.25s var(--ease);
+}
+.contact-item:hover { border-color: var(--border-h); transform: translateX(5px); }
+.contact-item-icon {
+ width: 40px; height: 40px; border-radius: 10px;
+ background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.2);
+ display: flex; align-items: center; justify-content: center;
+ font-size: 17px; flex-shrink: 0;
+}
+.contact-item-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3); margin-bottom: 3px; }
+.contact-item-val { font-size: 14px; font-weight: 500; color: var(--text); }
+.avail-card {
+ background: var(--card); border: 1px solid var(--border);
+ border-radius: var(--r-lg); padding: 30px 32px; position: relative; overflow: hidden;
+}
+.avail-card::before {
+ content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+ background: linear-gradient(90deg, transparent, var(--accent), var(--accent2), transparent);
+}
+.avail-flag { font-size: 26px; margin-bottom: 14px; }
+.avail-title { font-family: var(--font-h); font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 9px; }
+.avail-desc { font-size: 15px; color: var(--text2); line-height: 1.68; margin-bottom: 14px; }
+.avail-specs { font-size: 13px; color: var(--text3); line-height: 1.6; }
+
+/* ── FOOTER ── */
+footer {
+ background: var(--bg); border-top: 1px solid var(--border);
+ padding: 30px 44px; text-align: center; position: relative; z-index: 1;
+}
+.footer-stars { color: var(--gold); letter-spacing: 2px; font-size: 14px; margin-bottom: 12px; }
+.footer-copy { font-size: 14px; color: var(--text3); margin-bottom: 6px; }
+.footer-loc { font-size: 12px; color: var(--text3); opacity: 0.55; }
+
+/* ── TABLET ── */
+@media (max-width: 960px) {
+ nav { padding: 0 20px; }
+ .nav-links { display: none; }
+ .nav-toggle { display: flex; }
+ .hero { padding: 110px 24px 70px; }
+ .hero-inner { grid-template-columns: 1fr; }
+ .hero-card { display: none; }
+ section { padding: 72px 24px; }
+ .contact-section { padding: 72px 24px; }
+ footer { padding: 24px 20px; }
+ .comp-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+ .toolkit-grid { grid-template-columns: repeat(2,1fr); }
+ .edu-grid { grid-template-columns: 1fr 1fr; }
+ .contact-top { grid-template-columns: 1fr; gap: 36px; }
+ .case-body { grid-template-columns: 1fr; }
+ .case-col { border-right: none; padding: 0 0 18px; border-bottom: 1px solid var(--border); }
+ .case-col:nth-child(2) { padding-left: 0; }
+ .case-col:last-child { border-bottom: none; padding: 18px 0 0; padding-right: 0; }
+ .case-header { padding: 24px 24px 0; }
+ .case-body { padding: 22px 24px 26px; }
+ .case-footer { padding: 14px 24px; }
+ .exp-card { grid-template-columns: 1fr; padding: 26px 24px; }
+ .exp-meta { text-align: left; }
+ .pub-card { padding: 24px; }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 600px) {
+ body { font-size: 16px; }
+ .hero h1 { font-size: clamp(30px, 9vw, 42px); }
+ .hero-sub { font-size: 17px; }
+ .stats-row { flex-wrap: wrap; }
+ .stat { flex: 0 0 50%; }
+ .stat:nth-child(1), .stat:nth-child(2) { border-bottom: 1px solid var(--border); }
+ .stat:nth-child(2) { border-right: none; }
+ .stat-num { font-size: 26px; }
+ .hero-cta { flex-direction: column; align-items: stretch; }
+ .btn { justify-content: center; padding: 16px 20px; }
+ .comp-grid { grid-template-columns: 1fr; }
+ .toolkit-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+ .edu-grid { grid-template-columns: 1fr; }
+ .section-title { font-size: clamp(24px, 7vw, 34px); }
+ .section-desc { font-size: 16px; margin-bottom: 36px; }
+ .case-title { font-size: 18px; }
+ .exp-role { font-size: 17px; }
+ .pub-title { font-size: 16px; }
+ .pub-card { grid-template-columns: 1fr; }
+ .pub-badge { width: fit-content; }
+ .contact-heading { font-size: clamp(24px, 7vw, 34px); }
+ .contact-sub { font-size: 16px; }
+}
+
+ </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+
+<nav id="navbar">
+ <div class="nav-logo"><i class="fa-solid fa-shield-halved" style="margin-right:6px;color:var(--accent2);"></i> AJ <span>JUBRILLA</span></div>
+ <ul class="nav-links">
+ <li><a href="#about">About</a></li>
+ <li><a href="#competencies">Skills</a></li>
+ <li><a href="#portfolio">Portfolio</a></li>
+ <li><a href="#experience">Experience</a></li>
+ <li><a href="#publications">Publications</a></li>
+ <li><a href="#contact">Contact</a></li>
+ </ul>
+ <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+ <span></span><span></span><span></span>
+ </button>
+ <div class="nav-badge">Available for Engagement</div>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+ <a href="#about" onclick="closeDrawer()">About</a>
+ <a href="#competencies" onclick="closeDrawer()">Skills</a>
+ <a href="#portfolio" onclick="closeDrawer()">Portfolio</a>
+ <a href="#experience" onclick="closeDrawer()">Experience</a>
+ <a href="#publications" onclick="closeDrawer()">Publications</a>
+ <a href="#contact" onclick="closeDrawer()">Contact</a>
+</div>
+
+<!-- ── HERO ── -->
+
+<section class="hero" id="about">
+ <div class="orb orb-1"></div>
+ <div class="orb orb-2"></div>
+ <div class="orb orb-3"></div>
+ <div class="hero-inner">
+ <div>
+  <div class="hero-eyebrow"><i class="fa-solid fa-shield-halved" style="margin-right:4px;"></i> GRC Portfolio &nbsp;·&nbsp; Rotterdam, Netherlands &nbsp;·&nbsp; 2026</div>
+ <div class="hero-name-sm">Afolashade Joy Jubrilla</div>
+ <h1>
+ Strategic Lead in<br/>
+ <span class="grad">Cybersecurity Governance,</span><br/>
+ Risk &amp; Compliance
+ </h1>
+ <p class="hero-sub">
+ Specialising in <strong>EU AI Act</strong>, <strong>NIS2</strong>, and critical infrastructure resilience —
+ bridging regulatory precision with operational impact across the Netherlands and wider EU.
+ </p>
+ <div class="stats-row">
+ <div class="stat"><span class="stat-num">5,000+</span><span class="stat-label">Claims Remediated</span></div>
+ <div class="stat"><span class="stat-num">0</span><span class="stat-label">Audit Exceptions (3 Yrs)</span></div>
+ <div class="stat"><span class="stat-num">95%</span><span class="stat-label">Audit Overhead Reduced</span></div>
+ <div class="stat"><span class="stat-num">4</span><span class="stat-label">Published Works</span></div>
+ </div>
+ <div class="hero-cta">
+  <a href="#portfolio" class="btn btn-primary"><i class="fa-solid fa-briefcase"></i> View Case Studies</a>
+  <a href="#contact" class="btn btn-ghost"><i class="fa-regular fa-paper-plane"></i> Commission a Project</a>
+ </div>
+ </div>
+ <div class="hero-card">
+  <div class="hero-card-title"><i class="fa-solid fa-scroll" style="margin-right:6px;"></i> Regulatory Coverage</div>
+ <div class="reg-list">
+ <div class="reg-item"><span class="reg-name">EU AI Act</span><span class="reg-dot"></span></div>
+ <div class="reg-item"><span class="reg-name">GDPR</span><span class="reg-dot"></span></div>
+ <div class="reg-item"><span class="reg-name">NIS2</span><span class="reg-dot"></span></div>
+ <div class="reg-item"><span class="reg-name">DORA</span><span class="reg-dot"></span></div>
+ <div class="reg-item"><span class="reg-name">NIST CSF 2.0</span><span class="reg-dot"></span></div>
+ <div class="reg-item"><span class="reg-name">Wwft / AML</span><span class="reg-dot"></span></div>
+ <div class="reg-item"><span class="reg-name">PCI DSS</span><span class="reg-dot"></span></div>
+ <div class="reg-item"><span class="reg-name">ISO 9001</span><span class="reg-dot"></span></div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── 01 COMPETENCIES ── -->
+
+<section id="competencies">
+ <div class="section-inner">
+ <div class="section-tag reveal" data-num="01"><i class="fa-solid fa-star" style="margin-right:4px;"></i> Core Competencies</div>
+ <h2 class="section-title reveal d1">Capabilities</h2>
+ <p class="section-desc reveal d2">Comprehensive expertise across EU regulatory frameworks, security engineering, and enterprise risk architecture.</p>
+ <div class="comp-grid">
+ <div class="comp-card reveal d1">
+  <span class="comp-icon"><i class="fa-solid fa-shield-halved"></i></span>
+  <div class="comp-title"><span class="level-tag expert"><i class="fa-solid fa-crown"></i> EXPERT</span><br/>EU Regulatory Compliance</div>
+  <p class="comp-desc">Deep expertise navigating the European regulatory landscape — from GDPR data governance to NIS2 incident obligations and EU AI Act conformity assessments for high-risk systems.</p>
+  <div class="tags"><span class="tag">EU AI ACT</span><span class="tag">NIS2</span><span class="tag">GDPR</span><span class="tag">DORA</span></div>
+  </div>
+  <div class="comp-card reveal d2">
+  <span class="comp-icon"><i class="fa-brands fa-python"></i></span>
+  <div class="comp-title"><span class="level-tag advanced"><i class="fa-solid fa-arrow-up"></i> ADVANCED</span><br/>Python Security Automation</div>
+  <p class="comp-desc">Engineering automation pipelines that enforce Principle of Least Privilege, programmatically audit ACLs, and reduce manual compliance overhead by up to 95%.</p>
+  <div class="tags"><span class="tag">PYTHON</span><span class="tag">POLP</span><span class="tag">ACL GOVERNANCE</span></div>
+  </div>
+  <div class="comp-card reveal d3">
+  <span class="comp-icon"><i class="fa-solid fa-brain"></i></span>
+  <div class="comp-title"><span class="level-tag expert"><i class="fa-solid fa-crown"></i> EXPERT</span><br/>AI Security &amp; Adversarial Analysis</div>
+  <p class="comp-desc">Evaluating LLM outputs for data leakage, prompt injection, and adversarial behaviour. Mapping cyber-physical attack surfaces against Article 15 EU AI Act requirements.</p>
+  <div class="tags"><span class="tag">LLM EVAL</span><span class="tag">FDI ATTACKS</span><span class="tag">AI ROBUSTNESS</span></div>
+  </div>
+  <div class="comp-card reveal d2">
+  <span class="comp-icon"><i class="fa-solid fa-sitemap"></i></span>
+  <div class="comp-title"><span class="level-tag expert"><i class="fa-solid fa-crown"></i> EXPERT</span><br/>Enterprise Risk Architecture</div>
+  <p class="comp-desc">Designing Information Security Risk Heat Maps, translating technical vulnerabilities to boardroom-ready risk appetite frameworks across Tier 1 banking and logistics.</p>
+  <div class="tags"><span class="tag">NIST CSF</span><span class="tag">RISK HEAT MAPS</span><span class="tag">AES-256</span></div>
+  </div>
+  <div class="comp-card reveal d3">
+  <span class="comp-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></span>
+  <div class="comp-title"><span class="level-tag advanced"><i class="fa-solid fa-arrow-up"></i> ADVANCED</span><br/>Network Forensics &amp; IR</div>
+  <p class="comp-desc">Deep packet inspection, SYN flood analysis, TCP three-way handshake forensics using tcpdump and Wireshark. Authoring post-mortems and firewall reconfiguration strategies.</p>
+  <div class="tags"><span class="tag">TCPDUMP</span><span class="tag">WIRESHARK</span><span class="tag">INCIDENT RESPONSE</span></div>
+  </div>
+  <div class="comp-card reveal d4">
+  <span class="comp-icon"><i class="fa-solid fa-building-columns"></i></span>
+  <div class="comp-title"><span class="level-tag expert"><i class="fa-solid fa-crown"></i> EXPERT</span><br/>AML / KYC / Financial Governance</div>
+  <p class="comp-desc">Directed a 23-member governance unit standardising 15,000+ client profiles. Zero audit exceptions for three consecutive years under AML, KYC, and Wwft standards.</p>
+  <div class="tags"><span class="tag">AML</span><span class="tag">KYC</span><span class="tag">WWFT</span><span class="tag">200+ BRANCHES</span></div>
+  </div>
+ </div>
+ </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── 02 CASE STUDIES ── -->
+
+<section id="portfolio">
+ <div class="section-inner">
+ <div class="section-tag reveal" data-num="02"><i class="fa-solid fa-folder-open" style="margin-right:4px;"></i> GRC Solution Case Studies</div>
+ <h2 class="section-title reveal d1">Project Portfolio</h2>
+ <p class="section-desc reveal d2">Selected highlights from an active career in cybersecurity governance, risk architecture, and regulatory compliance.</p>
+ <div class="cases">
+
+```
+ <div class="case-card reveal d1">
+  <div class="case-header">
+  <div>
+  <div class="case-num"><i class="fa-regular fa-file-lines" style="margin-right:4px;"></i> Case Study · 01</div>
+  <div class="case-title">Trustworthy AI Infrastructure &amp; EU AI Act Alignment</div>
+  <div class="case-subtitle">Research Publication / INCO Academy Capstone · 2025–2026</div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+  <span class="premium-badge"><i class="fa-solid fa-star"></i> Featured</span>
+  <div class="case-status">Completed</div>
+  </div>
+  </div>
+ <div class="case-body">
+ <div class="case-col">
+  <div class="case-col-label"><i class="fa-solid fa-circle-exclamation"></i> The Problem</div>
+ <p>AI controllers in critical infrastructure create efficiency gains but introduce a critical Trust Gap through False Data Injection (FDI) vulnerabilities — capable of triggering physical failure in cyber-physical systems.</p>
+ </div>
+ <div class="case-col">
+  <div class="case-col-label"><i class="fa-solid fa-bullseye"></i> Strategic Action</div>
+ <p>Evaluated cyber-physical security boundaries through Article 15 of the EU AI Act. Mapped a five-layer defence model across Physical, Sensing, Communication, Control, and Operator layers.</p>
+ </div>
+ <div class="case-col">
+  <div class="case-col-label"><i class="fa-solid fa-chart-simple"></i> Measurable Outcome</div>
+ <p>Developed a blueprint for mandatory conformity assessments ensuring technical documentation meets EU robustness requirements for High-Risk AI systems across energy, transport, and finance sectors.</p>
+ </div>
+ </div>
+ <div class="case-footer">
+ <div class="tags"><span class="tag">EU AI ACT ART. 15</span><span class="tag">FDI THREAT MODELLING</span><span class="tag">5-LAYER DEFENCE</span><span class="tag">CONFORMITY ASSESSMENT</span></div>
+ </div>
+ </div>
+
+ <div class="case-card reveal d2">
+ <div class="case-header">
+ <div>
+  <div class="case-num"><i class="fa-regular fa-file-lines" style="margin-right:4px;"></i> Case Study · 02</div>
+ <div class="case-title">Strategic Enterprise Risk Audit: NIST CSF &amp; NIS2 Gap Analysis</div>
+ <div class="case-subtitle">Global Infrastructure Entity · Comprehensive Security Assessment</div>
+ </div>
+ <div class="case-status">Completed</div>
+ </div>
+ <div class="case-body">
+ <div class="case-col">
+  <div class="case-col-label"><i class="fa-solid fa-circle-exclamation"></i> The Problem</div>
+ <p>Critical misalignment between technical data handling practices and mandatory EU legal frameworks — GDPR, NIS2, and DORA — creating unquantified risk exposure at board level.</p>
+ </div>
+ <div class="case-col">
+  <div class="case-col-label"><i class="fa-solid fa-bullseye"></i> Strategic Action</div>
+ <p>Led a full-scope audit mapping technical vulnerabilities to NIST CSF core functions. Identified critical PII encryption gaps and unauthorised lateral network movement as priority remediation targets.</p>
+ </div>
+ <div class="case-col">
+  <div class="case-col-label"><i class="fa-solid fa-chart-simple"></i> Measurable Outcome</div>
+ <p>Engineered a prioritised Information Security Risk Heat Map enabling stakeholders to visualise risk appetite versus exposure — securing executive sign-off for AES-256 encryption deployment roadmap.</p>
+ </div>
+ </div>
+ <div class="case-footer">
+ <div class="tags"><span class="tag">NIST CSF 2.0</span><span class="tag">NIS2</span><span class="tag">DORA</span><span class="tag">GDPR</span><span class="tag">RISK HEAT MAP</span></div>
+ </div>
+ </div>
+
+ <div class="case-card reveal d3">
+ <div class="case-header">
+ <div>
+  <div class="case-num"><i class="fa-regular fa-file-lines" style="margin-right:4px;"></i> Case Study · 03</div>
+ <div class="case-title">Automated Access Governance Engine (Python)</div>
+ <div class="case-subtitle">Technical Response to Operational Access Control Risk</div>
+ </div>
+ <div class="case-status">Completed</div>
+ </div>
+ <div class="case-body">
+ <div class="case-col">
+  <div class="case-col-label"><i class="fa-solid fa-circle-exclamation"></i> The Problem</div>
+ <p>Manual ACL management processes causing Privilege Creep, significant audit friction, and NIS2 non-compliance risk across data-rich server environments with dynamic IP populations.</p>
+ </div>
+ <div class="case-col">
+  <div class="case-col-label"><i class="fa-solid fa-bullseye"></i> Strategic Action</div>
+ <p>Engineered a Python-based automation engine enforcing Principle of Least Privilege. The script programmatically audits, flags, and purges decommissioned IP addresses from restricted server access files.</p>
+ </div>
+ <div class="case-col">
+  <div class="case-col-label"><i class="fa-solid fa-chart-simple"></i> Measurable Outcome</div>
+ <p>95% reduction in manual audit overhead. Real-time compliance enforcement with NIS2 access control requirements — continuously validated without human intervention.</p>
+ </div>
+ </div>
+ <div class="case-footer">
+ <div class="tags"><span class="tag">PYTHON AUTOMATION</span><span class="tag">POLP</span><span class="tag">NIS2</span><span class="tag">ACL GOVERNANCE</span><span class="tag">95% OVERHEAD ↓</span></div>
+ </div>
+ </div>
+
+ <div class="case-card reveal d4">
+ <div class="case-header">
+ <div>
+  <div class="case-num"><i class="fa-regular fa-file-lines" style="margin-right:4px;"></i> Case Study · 04</div>
+ <div class="case-title">Forensic Incident Response &amp; Protocol Recovery</div>
+ <div class="case-subtitle">Multi-Vector Infrastructure Attack · Technical Investigation</div>
+ </div>
+ <div class="case-status">Completed</div>
+ </div>
+ <div class="case-body">
+ <div class="case-col">
+  <div class="case-col-label"><i class="fa-solid fa-circle-exclamation"></i> The Problem</div>
+ <p>Service failures on Port 53 (DNS) during high-volume SYN flood attacks, degrading TCP three-way handshake integrity and threatening operational availability across the infrastructure perimeter.</p>
+ </div>
+ <div class="case-col">
+  <div class="case-col-label"><i class="fa-solid fa-bullseye"></i> Strategic Action</div>
+ <p>Performed deep packet inspection using tcpdump. Conducted systematic protocol disruption analysis of the TCP handshake sequence under load, isolating the attack vector from legitimate traffic signatures.</p>
+ </div>
+ <div class="case-col">
+  <div class="case-col-label"><i class="fa-solid fa-chart-simple"></i> Measurable Outcome</div>
+ <p>Authored the formal Incident Post-Mortem and firewall reconfiguration strategy. Restored full system availability within strict Recovery Time Objectives — adopted as org-wide IR template.</p>
+ </div>
+ </div>
+ <div class="case-footer">
+ <div class="tags"><span class="tag">TCPDUMP</span><span class="tag">WIRESHARK</span><span class="tag">SYN FLOOD DEFENCE</span><span class="tag">INCIDENT POST-MORTEM</span><span class="tag">RTO COMPLIANCE</span></div>
+ </div>
+ </div>
+
+</div>
+```
+
+ </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── 03 EXPERIENCE ── -->
+
+<section id="experience">
+ <div class="section-inner">
+ <div class="section-tag reveal" data-num="03"><i class="fa-solid fa-briefcase" style="margin-right:4px;"></i> Professional Experience</div>
+ <h2 class="section-title reveal d1">Work History</h2>
+ <p class="section-desc reveal d2">A career spanning financial governance, EU regulatory operations, and AI security evaluation.</p>
+ <div class="exp-list">
+
+```
+ <div class="exp-card reveal d1">
+  <div>
+  <div class="exp-company"><i class="fa-solid fa-microchip" style="margin-right:6px;"></i> Outlier AI <span class="premium-badge" style="margin-left:8px;"><i class="fa-solid fa-bolt"></i> Current</span></div>
+  <div class="exp-role">AI Security Specialist &amp; Evaluator</div>
+  <ul class="exp-bullets">
+  <li>Evaluating Large Language Model outputs for data leakage, prompt injection, and adversarial behaviour to ensure enterprise-grade model safety.</li>
+  <li>Authoring technical assessments directly supporting Human Oversight and Cybersecurity requirements under the EU AI Act.</li>
+  </ul>
+  </div>
+  <div class="exp-meta">
+  <div class="exp-period">Mar 2026 – Present</div>
+  <div class="exp-location">Remote · Global</div>
+  </div>
+  </div>
+
+  <div class="exp-card reveal d2">
+  <div>
+  <div class="exp-company"><i class="fa-solid fa-train" style="margin-right:6px;"></i> Eurail B.V. <span class="premium-badge" style="margin-left:8px;"><i class="fa-solid fa-bolt"></i> Current</span></div>
+  <div class="exp-role">Claims Specialist — Governance &amp; Remediation</div>
+  <ul class="exp-bullets">
+  <li>Spearheaded operational recovery project clearing a legacy backlog of 5,000+ claims, restoring departmental throughput and system reliability.</li>
+  <li>Audited end-to-end workflows ensuring 100% adherence to EU Passenger Rights and data privacy legislation.</li>
+  <li>Established the organisation's first formalised version control and traceability protocols, reducing data reconciliation errors by 30%.</li>
+  </ul>
+  </div>
+  <div class="exp-meta">
+  <div class="exp-period">May 2025 – Present</div>
+  <div class="exp-location">Utrecht, Netherlands</div>
+  </div>
+  </div>
+
+  <div class="exp-card reveal d3">
+  <div>
+  <div class="exp-company"><i class="fa-solid fa-building-columns" style="margin-right:6px;"></i> Polaris Bank · Formerly Skye Bank</div>
+  <div class="exp-role">Lead — Specialised Governance Unit</div>
+  <ul class="exp-bullets">
+  <li>Directed a 23-member governance unit standardising 15,000+ client profiles across a 200-branch national network.</li>
+  <li>Achieved zero audit exceptions for three consecutive years through strict application of AML, KYC, and Wwft standards.</li>
+  <li>Institutionalised internal controls in partnership with Risk and Audit leadership, maintaining compliance exceptions below 2% bank-wide.</li>
+  </ul>
+  </div>
+  <div class="exp-meta">
+  <div class="exp-period">Jun 2015 – Aug 2023</div>
+  <div class="exp-location">Lagos, Nigeria</div>
+  </div>
+  </div>
+
+</div>
+```
+
+ </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── 04 PUBLICATIONS ── -->
+
+<section id="publications">
+ <div class="section-inner">
+ <div class="section-tag reveal" data-num="04"><i class="fa-solid fa-book-open" style="margin-right:4px;"></i> Research &amp; Publications</div>
+ <h2 class="section-title reveal d1">Published Works</h2>
+ <p class="section-desc reveal d2">Peer-reviewed research and published writing at the intersection of AI governance, risk management, and financial security.</p>
+ <div class="pub-list">
+
+```
+ <div class="pub-card reveal d1">
+  <div class="pub-badge"><i class="fa-solid fa-flask"></i><br/>RESEARCH</div>
+  <div>
+  <div class="pub-journal"><i class="fa-regular fa-file-lines" style="margin-right:4px;"></i> INCO Academy Capstone Publication · 2026</div>
+  <div class="pub-title">Trustworthy AI-Based Microgrids: Control, Cybersecurity &amp; Adversarial Robustness</div>
+  <p class="pub-desc">Analysis of adversarial attack vectors on AI-controlled infrastructure and the implementation of defensive architectures aligned with EU regulatory obligations for high-risk systems.</p>
+  </div>
+  </div>
+
+  <div class="pub-card reveal d2">
+  <div class="pub-badge"><i class="fa-solid fa-scroll"></i><br/>JOURNAL</div>
+  <div>
+  <div class="pub-journal"><i class="fa-regular fa-file-lines" style="margin-right:4px;"></i> Magna Scientia Advanced Research and Reviews (MSARR) · 2025</div>
+  <div class="pub-title">The Interplay Between Risk Management and Management Decisions in Data-Rich Environments</div>
+  <p class="pub-desc">Investigation into the strategic balance between leveraging big data analytics for decision-making and maintaining robust governance and risk management frameworks.</p>
+  </div>
+  </div>
+
+  <div class="pub-card reveal d3">
+  <div class="pub-badge"><i class="fa-solid fa-scroll"></i><br/>JOURNAL</div>
+  <div>
+  <div class="pub-journal"><i class="fa-regular fa-file-lines" style="margin-right:4px;"></i> Journal of Accounts and Finance (JAF) · 2026</div>
+  <div class="pub-title">From Prediction to Causation: Integrating AI in Economics and Finance</div>
+  <p class="pub-desc">Study on the transition of AI from predictive modelling to causal inference in the financial sector — with governance implications for AI deployment under DORA and EU AI Act.</p>
+  </div>
+  </div>
+
+  <div class="pub-card reveal d4">
+  <div class="pub-badge book"><span class="premium-badge" style="display:block;margin-bottom:4px;text-align:center;"><i class="fa-solid fa-crown"></i></span><i class="fa-solid fa-book"></i><br/>BOOK</div>
+  <div>
+  <div class="pub-journal"><i class="fa-regular fa-file-lines" style="margin-right:4px;"></i> Published Book · 2025</div>
+  <div class="pub-title">Surviving the AI Recession: A Guide to Staying Resilient in an Automated World</div>
+  <p class="pub-desc">Strategic guide for professionals navigating the economic disruption and security paradigm shifts brought on by accelerating AI adoption across industries.</p>
+  </div>
+  </div>
+
+</div>
+```
+
+ </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── 05 TOOLKIT ── -->
+
+<section id="toolkit">
+ <div class="section-inner">
+ <div class="section-tag reveal" data-num="05"><i class="fa-solid fa-toolbox" style="margin-right:4px;"></i> Professional Toolkit</div>
+ <h2 class="section-title reveal d1">Tools, Frameworks &amp; Credentials</h2>
+ <p class="section-desc reveal d2">Technical proficiencies, regulatory frameworks, and academic qualifications underpinning every engagement.</p>
+ <div class="toolkit-grid">
+  <div class="tool-card reveal d1"><span class="tool-icon"><i class="fa-brands fa-python"></i></span><div><div class="tool-name">Python Security Automation</div><div class="tool-type">Technical <span class="skill-tag">Automation</span></div></div></div>
+  <div class="tool-card reveal d1"><span class="tool-icon"><i class="fa-solid fa-database"></i></span><div><div class="tool-name">SQL Data Auditing</div><div class="tool-type">Technical <span class="skill-tag">Audit</span></div></div></div>
+  <div class="tool-card reveal d2"><span class="tool-icon"><i class="fa-solid fa-terminal"></i></span><div><div class="tool-name">Linux / Bash</div><div class="tool-type">Technical <span class="skill-tag">Scripting</span></div></div></div>
+  <div class="tool-card reveal d2"><span class="tool-icon"><i class="fa-solid fa-wifi"></i></span><div><div class="tool-name">tcpdump / Wireshark</div><div class="tool-type">Forensics <span class="skill-tag">Packet Analysis</span></div></div></div>
+  <div class="tool-card reveal d3"><span class="tool-icon"><i class="fa-solid fa-scale-balanced"></i></span><div><div class="tool-name">AI Act Compliance</div><div class="tool-type">Regulatory <span class="skill-tag">EU Framework</span></div></div></div>
+  <div class="tool-card reveal d3"><span class="tool-icon"><i class="fa-solid fa-clipboard-check"></i></span><div><div class="tool-name">NIST CSF 2.0</div><div class="tool-type">Framework <span class="skill-tag">Risk Mgmt</span></div></div></div>
+  <div class="tool-card reveal d4"><span class="tool-icon"><i class="fa-solid fa-gavel"></i></span><div><div class="tool-name">GDPR / NIS2</div><div class="tool-type">Regulatory <span class="skill-tag">Compliance</span></div></div></div>
+  <div class="tool-card reveal d4"><span class="tool-icon"><i class="fa-solid fa-lock"></i></span><div><div class="tool-name">PCI DSS</div><div class="tool-type">Regulatory <span class="skill-tag">Data Security</span></div></div></div>
+  <div class="tool-card reveal d5"><span class="tool-icon"><i class="fa-solid fa-certificate"></i></span><div><div class="tool-name">ISO 9001</div><div class="tool-type">Certified <span class="skill-tag">Lead Auditor</span></div></div></div>
+  <div class="tool-card reveal d5"><span class="tool-icon"><i class="fa-brands fa-google"></i></span><div><div class="tool-name">Google Cybersecurity Professional</div><div class="tool-type">Certified <span class="skill-tag">Professional</span></div></div></div>
+  </div>
+ <h3 style="font-family:var(--font-h);font-size:19px;font-weight:700;color:#fff;margin-bottom:20px;" class="reveal">Education</h3>
+ <div class="edu-grid">
+ <div class="edu-card reveal d1">
+  <div class="edu-degree"><i class="fa-solid fa-graduation-cap" style="margin-right:4px;"></i> Masters Degree</div>
+  <div class="edu-title">MA, Governance &amp; Development Policy</div>
+  <div class="edu-inst">Erasmus University Rotterdam</div>
+  </div>
+  <div class="edu-card reveal d2">
+  <div class="edu-degree"><i class="fa-solid fa-chart-line" style="margin-right:4px;"></i> MBA</div>
+  <div class="edu-title">Master of Business Administration</div>
+  <div class="edu-inst">LAUTECH, Nigeria</div>
+  </div>
+  <div class="edu-card reveal d3">
+  <div class="edu-degree"><i class="fa-solid fa-book" style="margin-right:4px;"></i> Bachelor's Degree</div>
+  <div class="edu-title">BA, Linguistics</div>
+  <div class="edu-inst">Ekiti State University (EKSU)</div>
+  </div>
+ </div>
+ </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── CONTACT ── -->
+
+<div class="contact-section" id="contact">
+ <div class="contact-inner">
+ <div class="section-tag reveal" data-num="→"><i class="fa-solid fa-envelope" style="margin-right:4px;"></i> Let's Connect</div>
+ <div class="contact-top">
+ <div>
+ <h2 class="contact-heading reveal d1">Ready to Build Compliant Infrastructure Together?</h2>
+ <p class="contact-sub reveal d2">Available for GRC consulting, EU AI Act implementation, and security governance roles across the Netherlands and wider EU. Open to hybrid and on-site roles in Amsterdam, Utrecht, The Hague, and Brussels.</p>
+ </div>
+ <div class="contact-grid">
+ <a href="mailto:jubrillaafolashade@gmail.com" class="contact-item reveal d1">
+  <div class="contact-item-icon"><i class="fa-solid fa-envelope"></i></div>
+  <div><div class="contact-item-label">Email</div><div class="contact-item-val">jubrillaafolashade@gmail.com</div></div>
+  </a>
+  <a href="tel:+31630736910" class="contact-item reveal d2">
+  <div class="contact-item-icon"><i class="fa-solid fa-phone"></i></div>
+  <div><div class="contact-item-label">Phone</div><div class="contact-item-val">+31 630 736 910</div></div>
+  </a>
+  <a href="https://linkedin.com/in/afolashadejubrilla" target="_blank" rel="noopener" class="contact-item reveal d3">
+  <div class="contact-item-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+  <div><div class="contact-item-label">LinkedIn</div><div class="contact-item-val">linkedin.com/in/afolashadejubrilla</div></div>
+  </a>
+  <a href="https://www.afolashade.com" target="_blank" rel="noopener" class="contact-item reveal d4">
+  <div class="contact-item-icon"><i class="fa-solid fa-globe"></i></div>
+  <div><div class="contact-item-label">Website</div><div class="contact-item-val">www.afolashade.com</div></div>
+  </a>
+ </div>
+ </div>
+  <div class="avail-card reveal">
+  <div class="avail-flag"><i class="fa-solid fa-handshake"></i></div>
+  <div class="avail-title">EU-Authorised Professional · Rotterdam, Netherlands</div>
+ <div class="avail-desc">Available for GRC consulting, EU AI Act implementation, and security governance roles across the Netherlands and wider EU.</div>
+ <div class="avail-specs">Specialisations: EU AI Act · NIS2 · GDPR · DORA · Cybersecurity Governance · Risk Architecture</div>
+ </div>
+ </div>
+</div>
+
+<!-- ── FOOTER ── -->
+
+<footer>
+ <div class="footer-stars">★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★</div>
+ <div class="footer-copy">© 2026 Afolashade Joy Jubrilla — GRC Portfolio</div>
+ <div class="footer-loc">Rotterdam, Netherlands · EU AI Act Aligned · Available for Engagement</div>
+</footer>
+
+<script>
+ /* ── Hamburger ── */
+ const toggle = document.getElementById('navToggle');
+ const drawer = document.getElementById('navDrawer');
+
+ toggle.addEventListener('click', () => {
+ const open = drawer.classList.toggle('open');
+ toggle.classList.toggle('open', open);
+ document.body.style.overflow = open ? 'hidden' : '';
+ });
+ function closeDrawer() {
+ drawer.classList.remove('open');
+ toggle.classList.remove('open');
+ document.body.style.overflow = '';
+ }
+
+ /* ── Smooth scroll for all anchor links ── */
+ document.querySelectorAll('a[href^="#"]').forEach(link => {
+ link.addEventListener('click', e => {
+ const target = document.querySelector(link.getAttribute('href'));
+ if (!target) return;
+ e.preventDefault();
+ closeDrawer();
+ const offset = 70;
+ const top = target.getBoundingClientRect().top + window.scrollY - offset;
+ window.scrollTo({ top, behavior: 'smooth' });
+ });
+ });
+
+ /* ── Scroll reveal ── */
+ const observer = new IntersectionObserver(entries => {
+ entries.forEach(e => {
+ if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+ });
+ }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+ /* ── Navbar darken on scroll ── */
+ window.addEventListener('scroll', () => {
+ document.getElementById('navbar').style.background =
+ window.scrollY > 24 ? 'rgba(15,23,42,0.95)' : 'rgba(15,23,42,0.8)';
+ }, { passive: true });
+
+ /* ── 3D tilt on competency cards (desktop only) ── */
+ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+ document.querySelectorAll('.comp-card').forEach(card => {
+ card.addEventListener('mousemove', e => {
+ const r = card.getBoundingClientRect();
+ const x = (e.clientX - r.left) / r.width - 0.5;
+ const y = (e.clientY - r.top) / r.height - 0.5;
+ card.style.transform = `translateY(-6px) rotateX(${-y * 7}deg) rotateY(${x * 7}deg)`;
+ });
+ card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+ });
+ }
+
+ /* ── Animated counter for hero stats ── */
+ function animateCounter(el, target, duration = 1400) {
+ const isPercent = target.toString().includes('%');
+ const isPlus = target.toString().includes('+');
+ const num = parseInt(target);
+ const start = performance.now();
+ const step = ts => {
+ const progress = Math.min((ts - start) / duration, 1);
+ const eased = 1 - Math.pow(1 - progress, 3);
+ const current = Math.round(eased * num);
+ el.textContent = (num === 0 ? '0' : current.toLocaleString()) + (isPlus ? '+' : '') + (isPercent ? '%' : '');
+ if (progress < 1) requestAnimationFrame(step);
+ };
+ requestAnimationFrame(step);
+ }
+
+ const statsObserver = new IntersectionObserver(entries => {
+ entries.forEach(e => {
+ if (e.isIntersecting) {
+ e.target.querySelectorAll('.stat-num').forEach(el => {
+ const raw = el.textContent.trim();
+ animateCounter(el, raw);
+ });
+ statsObserver.unobserve(e.target);
+ }
+ });
+ }, { threshold: 0.5 });
+
+ const statsRow = document.querySelector('.stats-row');
+ if (statsRow) statsObserver.observe(statsRow);
+</script>
+
+</body>
+</html>
